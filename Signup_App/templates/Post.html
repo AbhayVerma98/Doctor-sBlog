@@ -1,0 +1,17 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+
+{% if da  %}
+  {% for k in da %}
+<div class="container" style="width:90%, align:centre;">
+  <p><h2>{{k.title}}</h2></p>
+  <p><img src="{{k.image.url}}" alt="Card image cap" width="90%" height="80%"></p>
+  <p>{{k.summary}}</p>
+  <p>{{k.content | safe}}</p>
+  <p>Created at : {{k.created_at}}         Updated at : {{k.updated_at}}</p>
+</div>
+<br>
+{% endfor %}
+{% endif %}
+{% endblock %}

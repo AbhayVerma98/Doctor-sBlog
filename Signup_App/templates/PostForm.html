@@ -1,0 +1,57 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-2"></div>
+<div class="col-sm-8">
+<form method="POST">
+    {% csrf_token%}
+
+
+
+<script src="/static/ckeditor/ckeditor-init.js" data-ckeditor-basepath="/static/ckeditor/ckeditor/" id="ckeditor-init-script"></script>
+<script src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+
+<input type="hidden" name="user" value="{{user.pk}}">
+
+<p><label for="id_category">Category:</label> <select name="category" required id="id_category">
+  <option value="" selected>---------</option>
+
+  <option value="1">Heart Disease</option>
+
+  <option value="2">Mental Health</option>
+
+  <option value="3">Covid</option>
+
+  <option value="4">Thyroid</option>
+
+  <option value="5">Cancer</option>
+
+</select></p>
+
+
+
+
+<p><label for="id_title">Title:</label> <input type="text" name="title" class="form-control form-control-sm" placeholder="Father&#x27;s name" maxlength="50" required id="id_title"></p>
+
+
+<p><label for="id_image">Image:</label> <input type="file" name="image"  id="id_image"></p>
+
+
+<p><label for="id_summary">Summary:</label> <textarea name="summary" cols="40" rows="10" maxlength="200" required id="id_summary">
+</textarea></p>
+
+
+<p><label for="id_content">Content:</label> <div class="django-ckeditor-widget" data-field-id="id_content" style="display: inline-block;">
+    <textarea cols="40" id="id_content" name="content" rows="10" required data-processed="0" data-config="{&quot;skin&quot;: &quot;moono-lisa&quot;, &quot;toolbar_Basic&quot;: [[&quot;Source&quot;, &quot;-&quot;, &quot;Bold&quot;, &quot;Italic&quot;]], &quot;toolbar_Full&quot;: [[&quot;Styles&quot;, &quot;Format&quot;, &quot;Bold&quot;, &quot;Italic&quot;, &quot;Underline&quot;, &quot;Strike&quot;, &quot;SpellChecker&quot;, &quot;Undo&quot;, &quot;Redo&quot;], [&quot;Link&quot;, &quot;Unlink&quot;, &quot;Anchor&quot;], [&quot;Image&quot;, &quot;Flash&quot;, &quot;Table&quot;, &quot;HorizontalRule&quot;], [&quot;TextColor&quot;, &quot;BGColor&quot;], [&quot;Smiley&quot;, &quot;SpecialChar&quot;], [&quot;Source&quot;]], &quot;toolbar&quot;: &quot;Full&quot;, &quot;height&quot;: 291, &quot;width&quot;: 835, &quot;filebrowserWindowWidth&quot;: 940, &quot;filebrowserWindowHeight&quot;: 725, &quot;language&quot;: &quot;en-us&quot;}" data-external-plugin-resources="[]" data-id="id_content" data-type="ckeditortype"></textarea>
+</div></p>
+
+
+<p><label for="id_draft">Draft:</label> <input type="checkbox" name="draft" id="id_draft"></p>
+    <button type="submit" class="btn btn-success" value="save">Submit</button>
+
+</form>
+</div>
+</div>
+{% endblock %}
